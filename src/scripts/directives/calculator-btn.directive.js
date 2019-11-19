@@ -8,6 +8,6 @@ app.directive('calculatorBtn', function() {
       size: '=?'
     },
     template:
-      '<button type="button" value="{{value}}" class="cal-btn" ng-click="appendKey(data.value)">{{text}}</button>'
+      '<button type="button" value="{{data.value}}" class="cal-btn" ng-click="appendKey(data.value)">{{text}}</button>'
   };
 });
