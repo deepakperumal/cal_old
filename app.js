@@ -4,7 +4,7 @@ app.controller('testController', function($scope) {
   $scope.result = '';
 
   $scope.obj = [
-    { key: 7, value: 7 },
+    { key: 7, value: 7, text: '7' },
     { key: 8, value: 8 },
     { key: 9, value: 9 },
     { key: '+', value: '+' },
@@ -50,5 +50,19 @@ app.directive('calculator', function() {
     restrict: 'AE',
     templateUrl: './button.html',
     controller: 'testController'
+  };
+});
+
+app.directive('calculatorBtn', function() {
+  return {
+    restrict: 'AE',
+    scope: {
+      value: '=',
+      text: '@',
+      onClick: '&',
+      size: '=?'
+    },
+    template:
+      '<button type="button" value="{{value}}" class="cal-btn" ng-click="appendKey(value)">{{text}}</button>'
   };
 });
