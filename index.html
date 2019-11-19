@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <style>
+      .wrapper {
+        border: 1px solid;
+        width: 500px;
+        height: 300px;
+        margin: 0 auto;
+
+        padding: 0 44px 25px 44px;
+      }
+
+      .text-screen {
+        text-align: center;
+        margin-top: 34px;
+      }
+      .text-screen-input {
+        width: 100%;
+        text-align: right;
+        padding: 9px;
+      }
+      .cal-btn {
+        width: 13%;
+        padding: 10px;
+        background: #ffff;
+        border: 1px solid grey;
+        cursor: pointer;
+        margin-right: 13px;
+        margin-top: 17px;
+      }
+      .no-container {
+        width: 50%;
+        float: left;
+      }
+    </style>
+  </head>
+
+  <body ng-app="app" ng-controller="testController">
+    <div class="wrapper">
+      <div class="text-screen">
+        <input class="text-screen-input" ng-model="result" />
+      </div>
+      <div class="key-wrap">
+        <calculator></calculator>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
