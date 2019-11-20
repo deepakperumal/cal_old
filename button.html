@@ -6,7 +6,11 @@
   ng-click="appendKey(data.value)"
 />
 -->
-<calculator-btn ng-repeat="data in obj" value="data.value"></calculator-btn>
+<calculator-btn
+  ng-repeat="data in obj"
+  value="data.value"
+  test="appendKey(data.value)"
+></calculator-btn>
 <input
   type="button"
   call-func="test(data.value)"

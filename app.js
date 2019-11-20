@@ -25,8 +25,7 @@ app.controller('testController', function($scope) {
   ];
 
   $scope.appendKey = function(key) {
-    $scope.result += key;
-    console.log($scope.result);
+    $scope.result += key.toString();
   };
 
   $scope.clear = function() {
@@ -36,12 +35,12 @@ app.controller('testController', function($scope) {
   $scope.calResult = function() {
     var isValid = true;
     try {
-      eval($scope.result);
+      $scope.$eval($scope.result);
     } catch (e) {
       isValid = false;
     }
 
-    if (isValid) $scope.result = eval($scope.result);
+    if (isValid) $scope.result = $scope.$eval($scope.result);
     else $scope.result = 'Invalid Expression';
   };
 
@@ -53,7 +52,6 @@ app.controller('testController', function($scope) {
 app.directive('calculator', function() {
   return {
     restrict: 'AE',
-    scope: {},
     templateUrl: './button.html',
     controller: 'testController'
   };
@@ -65,11 +63,10 @@ app.directive('calculatorBtn', function() {
     scope: {
       value: '=',
       text: '@',
-      test: '&callFunc',
+      test: '&',
       size: '=?'
     },
     template:
-      '<button type="button" value="{{value}}" class="cal-btn" ng-click="appendKey(value)" >{{value}}</button>',
-    controller: 'testController'
+      '<button type="button" value="{{value}}" class="cal-btn" ng-click="test()" >{{value}}</button>'
   };
 });
