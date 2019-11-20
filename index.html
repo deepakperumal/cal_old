@@ -1,41 +1,9 @@
 <html>
   <head>
-    <style>
-      .wrapper {
-        border: 1px solid;
-        width: 500px;
-        height: 300px;
-        margin: 0 auto;
-
-        padding: 0 44px 25px 44px;
-      }
-
-      .text-screen {
-        text-align: center;
-        margin-top: 34px;
-      }
-      .text-screen-input {
-        width: 100%;
-        text-align: right;
-        padding: 9px;
-      }
-      .cal-btn {
-        width: 13%;
-        padding: 10px;
-        background: #ffff;
-        border: 1px solid grey;
-        cursor: pointer;
-        margin-right: 13px;
-        margin-top: 17px;
-      }
-      .no-container {
-        width: 50%;
-        float: left;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
 
-  <body ng-app="app" ng-controller="testController">
+  <body ng-app="app" ng-controller="testController" class="theme-default">
     <div class="wrapper">
       <div class="text-screen">
         <input class="text-screen-input" ng-model="result" />
@@ -43,8 +11,22 @@
       <div class="key-wrap">
         <calculator></calculator>
       </div>
+
+      <div id="light"></div>
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="app.js"></script>
+    <script src="src/scripts/directives/calculator-btn.directive.js"></script>
+    <script src="src/scripts/controllers/calculater.controller.js"></script>
+    <script>
+      const light = document.getElementById('light');
+      document.addEventListener('mousemove', e => {
+        console.log(e.pageY);
+
+        light.style.top = e.pageY + 'px';
+        light.style.left = e.pageX + 'px';
+      });
+    </script>
   </body>
 </html>

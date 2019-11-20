@@ -1,13 +1,21 @@
+app.directive('calculator', function() {
+  return {
+    restrict: 'AE',
+    templateUrl: '../src/partials/templates/button.html',
+    controller: 'testController'
+  };
+});
+
 app.directive('calculatorBtn', function() {
   return {
     restrict: 'AE',
     scope: {
       value: '=',
       text: '@',
-      onClick: '&',
+      test: '&',
       size: '=?'
     },
     template:
-      '<button type="button" value="{{data.value}}" class="cal-btn" ng-click="appendKey(data.value)">{{text}}</button>'
+      '<button type="button" value="{{value}}" class="cal-btn {{size}}" ng-click="test()" >{{value}}</button>'
   };
 });
