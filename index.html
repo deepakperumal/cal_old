@@ -5,14 +5,19 @@
 
   <body ng-app="app" ng-controller="testController" class="theme-default">
     <div class="wrapper">
+      <div class="mask-top"></div>
+      <div class="mask-left"></div>
+      <div class="mask-right"></div>
       <div class="text-screen">
-        <input class="text-screen-input" ng-model="result" />
+        <input class="text-screen-input" ng-model="result" readonly />
+        <div class="mask-top1"></div>
       </div>
-      <div class="key-wrap">
-        <calculator></calculator>
+      <div class="key-wrap" ng-mouseenter="lightIn()" ng-mouseleave="lightOut()">
+        <calculator class="btns-cal"></calculator>
       </div>
 
-      <div id="light"></div>
+      <div class="mask-bottom"></div>
+      <div id="light" class="light"></div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -22,8 +27,6 @@
     <script>
       const light = document.getElementById('light');
       document.addEventListener('mousemove', e => {
-        console.log(e.pageY);
-
         light.style.top = e.pageY + 'px';
         light.style.left = e.pageX + 'px';
       });

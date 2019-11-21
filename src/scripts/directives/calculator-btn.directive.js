@@ -15,7 +15,6 @@ app.directive('calculatorBtn', function() {
       test: '&',
       size: '=?'
     },
-    template:
-      '<button type="button" value="{{value}}" class="cal-btn {{size}}" ng-click="test()" >{{value}}</button>'
+    template: '<div class="cal-btn {{size}}" ng-click="test()" >{{value}}</div>'
   };
 });
